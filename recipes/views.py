@@ -11,7 +11,10 @@ class RecipeList(generics.ListCreateAPIView):
     """
     serializer_class = RecipeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Recipe.objects.all()
+    queryset = Recipe.objects.annotate(
+        reviews_count=Count('reviews', distinct=True),
+        average_rating=Avg('reviews__rating')
+    ).order_by('-created_at')
 
     filter_backends = [
         filters.SearchFilter
@@ -31,6 +34,7 @@ class RecipeDetail(generics.RetrieveDestroyAPIView):
     """
     Retrieve a recipe, or update or delete it by id if you own it.
     """
-    serializer_class = RecipeSerializer
-    permission_classes = [IsOwnerOrReadOnly]
-    queryset = Recipe.objects.all()
+    queryset = Recipe.objects.annotate(
+        reviews_count=Count('reviews', distinct=True),
+        average_rating=Avg('reviews__rating')
+    ).order_by('-created_at')

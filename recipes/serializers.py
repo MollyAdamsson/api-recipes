@@ -9,6 +9,8 @@ class RecipeSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    reviews_count = serializers.ReadOnlyField()
+    average_rating = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         """
@@ -26,5 +28,8 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
-            'created_at', 'updated_at',
+            'created_at', 'updated_at', 'reviews_count',
+            'average_rating', 'description', 'ingredients', 'instructions', 
+            'title'
+            
         ]

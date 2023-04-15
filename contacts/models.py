@@ -1,18 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-from recipes.models import Recipe
 
-
-class Review(models.Model):
-    """
-    Model for the reviews
+class Contact(models.Model):
+    """ 
+    The model for the contact
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name='reviews'
-        )
-    content = models.TextField()
-    rating = models.IntegerField()
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -20,4 +16,4 @@ class Review(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.owner}'s review"
+        return f"{self.owner} ({self.email}) - {self.created_at} "
