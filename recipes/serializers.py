@@ -15,7 +15,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         """
         returns true if the user thats making the request
-        is the owner of the artist object 
+        is the owner of the recipe
         """
         request = self.context['request']
         return request.user == obj.owner
