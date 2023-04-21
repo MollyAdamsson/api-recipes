@@ -14,6 +14,10 @@ class RatingSerializer(serializers.ModelSerializer):
         model = Rating
         fields = [
             "id"
+            "owner",
+            "post",
+            "rating",
+            "created_at",
     ]
 
     def create(self, validate_data):
