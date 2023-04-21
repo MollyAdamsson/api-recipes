@@ -17,6 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     rating_id = serializers.SerializerMethodField()
     ratings_count = serializers.ReadOnlyField()
+    rating_average = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 4 * 1024 * 1024:
@@ -53,12 +54,22 @@ class PostSerializer(serializers.ModelSerializer):
             return rating.id if rating else None
         return None
 
+    def get_rating_average(self,obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            rating = Rating.objects.filter(
+                post=obj
+            ).first()
+        return rating.aggregate(Avg('rating')) if rating else None
+        return None
+
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
-            'like_id', 'likes_count', 'comments_count', 'rating_id', 'ratings_count', 'ingredients',
+            'like_id', 'likes_count', 'comments_count', 'rating_id',
+            'ratings_count', 'rating_average', 'ingredients',
             'instructions',
         ]
