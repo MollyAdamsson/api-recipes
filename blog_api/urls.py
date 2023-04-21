@@ -33,5 +33,6 @@ urlpatterns = [
     path('', include('followers.urls')),
     path('', include('recipes.urls')),
     path('', include('reviews.urls')),
-    path('', include('contacts.urls'))
+    path('', include('contacts.urls')),
+    path('', include('ratings.urls'))
 ]

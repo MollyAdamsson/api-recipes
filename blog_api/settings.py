@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'recipes',
     'reviews',
     'contacts',
+    'ratings',
 
 ]
 SITE_ID = 1

@@ -30,7 +30,6 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     ingredients = models.TextField(blank=True)
     instructions = models.TextField(blank=True)
-    difficulty = models.IntegerField()
     image = models.ImageField(
         upload_to='images/', default='../image-default_jk3no0', blank=True
     )
