@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions
 from blog_api.permissions import IsOwnerOrReadOnly
 from .models import Contact
@@ -28,7 +29,6 @@ class ContactList(generics.ListCreateAPIView):
                             status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class ContactDetail(generics.RetrieveUpdateDestroyAPIView):
     """

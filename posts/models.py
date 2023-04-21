@@ -28,6 +28,9 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
+    ingredients = models.TextField(blank=True)
+    instructions = models.TextField(blank=True)
+    difficulty = models.IntegerField()
     image = models.ImageField(
         upload_to='images/', default='../image-default_jk3no0', blank=True
     )
