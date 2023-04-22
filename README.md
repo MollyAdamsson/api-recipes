@@ -9,52 +9,59 @@
 ## Project Planning
 
 This project was created via agile methods during two weeks.
-I used the Kanban board to easily organize my work, you can find this via the github projects <here>. The developer creates cards to help them during the development, this is mainly to make it easier to keep track of the different user stories and make sure everything is completed.
+I used the Kanban board to easily organize my work, you can find this via the github projects [here](https://github.com/users/MollyAdamsson/projects/7/views/1). The developer creates cards to help them during the development, this is mainly to make it easier to keep track of the different user stories and make sure everything is completed.
 
-- image here
+![Image](readme/images/eekanban.png)
 
 ## Epics
 
 ### Set up
 
+Takes care of the API endpoint creation and the connection to the CRUD functions.
+
 ### Posts
+
+Takes care of the API endpoint creation and the connection to the CRUD functions when users create a post.
 
 ### Comments
 
+Takes care of the API endpoint creation and the connection to the CRUD functions when a user comments on a post.
+
 ### Profiles
 
-### Followers
+Takes care of the API endpoint creation and the connection to the CRUD functions when a user creates their prfoiles, it also includes the following/unfollowing functions.
 
-### Likes
+### Ratings
 
-### Contacts
-
-### Recipes
+Takes care of the API endpoint creation and the connection to the CRUD functions when a user rates a post. 
 
 ### Reviews
 
+Takes care of the API endpoint creation and the connection to the CRUD functions of profile reviews made by other users. 
 
 # User Stories
 
-* Set up
+## Set up
+* As a developer, I need to set up the base of the project to make sure I can expand the features I want to apply.
+* As a developer, I need to connect the project to a Cloudinary account so that my images renders the way I want.
+* As a user, I can create an account and am able to access all of the options created. 
 
-* Posts
+## Posts
+* As a user I want to be able to create a post/recipe 
+* As a user I want to be able to edit and delete a post/recipe
 
-* Comments
+## Comments
+* As a user I want to be able to comment on a post/recipe and delete/edit if I want to 
 
-* Profiles
+## Profiles
+* As a developer I want to create a blank profile with a default image that the user can chnage as per their own liking.
+* As a user I want to be able to view other profiles as a list
 
-* Followers
+## Ratings
+* As a user I want to be able to review a post/recipe.
 
-* Likes
-
-* Contacts
-
-* Recipes
-
-* Reviews
-
-# API Endpoints
+## Reviews
+* As a user I want to be able to leave a review on another users profile.
 
 # Security
 
@@ -62,26 +69,77 @@ I used the Kanban board to easily organize my work, you can find this via the gi
 
 # Technologies
 * Django
-Main framework used for application creation
+    * Main framework used for application creation
 * Django REST Framework
-Framework used for creating API
-* Cloudinary Platform
-Used for static image hosting
+    * Framework used for creating API
+* Cloudinary
+    * Used for static image hosting
 * Heroku
-Used for hosting the application
+    * Used for hosting the application
 * Git
-Used for version control
+    * Used for version control
 * Github
-Repository for storing code base and docs
+    * Repository for storing code base and docs
 
 # Python Packages
+<details open>
+<summary> Details of packages </summary>
 
-* .....
+* dj-database-url==1.0.0
+    * Used to parse the DATABASE_URL connection settings
+* dj-rest-auth==2.2.5
+    * Used with auth system
+* Django==4.1.1
+    * Main framework used to start the project
+* django-allauth==0.50.0
+    * Used for authentication
+* django-cors-headers==3.13.0
+    * Used for Cross-Origin Resource Sharing (CORS) headers to responses
+* django-filter==22.1
+    * Used to filter API results in serializers
+* django-storages==1.13.1
+    * Used to help connect with the google cloud storage bucket
+* djangorestframework==3.13.1
+    * Framework used to build the API endpoints
+* djangorestframework-simplejwt==5.2.0
+    * Used with djange rest framework to create access tokens for authentication
+* gunicorn==20.1.0
+    * Used for deployment of WSGI applications
+* Pillow==9.2.0
+    * Imaging Libray - used for image uploading
+* psycopg2==2.9.3
+    * PostgreSQL database adapter to allow deployed application to perform crud on the postgresql db
+* PyJWT==2.5.0
+    * For creating the Python Json Web Tokens for authentication
 
-* Installed as package dependcies with above installations:
+Installed as package dependcies with above installations:
+
+* asgiref==3.6.0
+* cloudinary==1.32.0
+* dj-database-url==0.5.0
+* dj-rest-auth==2.1.9
+* Django==3.2.18
+* django-allauth==0.44.0
+* django-cloudinary-storage==0.3.0
+* django-cors-headers==3.14.0
+* django-filter==23.1
+* djangorestframework==3.14.0
+* djangorestframework-simplejwt==5.2.2
+* gunicorn==20.1.0
+* oauthlib==3.2.2
+* Pillow==9.5.0
+* psycopg2==2.9.6
+* PyJWT==2.6.0
+* python3-openid==3.2.0
+* pytz==2023.3
+* requests-oauthlib==1.3.1
+* sqlparse==0.4.3
 
 # Testing
 
+- image of testing in terminal here
+
+The API was tested locally during development of the project and can be viewed properly [here]()
 
 ### Bugs and their fixes
 
