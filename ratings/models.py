@@ -12,7 +12,7 @@ class Rating(models.Model):
         Post, related_name='ratings', on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)
-    rating = models.IntegerField(blank=True, null=True)
+    user_rating = models.PositiveSmallIntegerField(default=0)
 
 
     class Meta:
