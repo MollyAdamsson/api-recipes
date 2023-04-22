@@ -143,7 +143,22 @@ The API was tested locally during development of the project and can be viewed p
 
 ### Bugs and their fixes
 
+* No bugs detected
+
 ## Deployment
+
+### Creation
+
+This project was created using Gitpod and then pushed to Github.
+To ensure this the user must type:
+
+```git add .``` 
+
+```git commit -m “commit message”```  
+
+```git push``` 
+
+This will make sure all of the files are added, commented on and then pushed to the repository for storage.
 
 ### [Elephantsql](https://www.elephantsql.com/) 
 
@@ -191,3 +206,21 @@ code in your IDE: pip3 freeze > requirements.txt
 * * CLOUNDINARY_URL: (cloudinary api url)
 * Search for the repository name you've chosen
 * Make sure you have selected the correct branch (master/main), and select the method you desire.
+
+## Cloudinary storage
+
+* I used Cloudinary to store my images 
+
+## Credits
+
+* I used the Code Institute's videos for 'Django Rest Framework' (walkthrough project) as guidance whilst setting the base up. 
+
+### Acknowledgements
+* This Recipe Blog was created as Portfolio Project 5 for the the Full Stack Software Developer diploma by the [Code Institute](https://codeinstitute.net/). 
+
+* I would like to thank my mentor [Gareth McGirr](https://www.linkedin.com/in/gareth-mcgirr/) for helping me and guiding me through this project, the tutors at code institute for being extremely helpful considering my many questions and to my partner who helped me with mental support.
+
+
+Molly Adamsson, 2023
+
+
