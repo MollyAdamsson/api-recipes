@@ -70,7 +70,7 @@ class PostSerializer(serializers.ModelSerializer):
             ratings = Rating.objects.filter(
                 post=obj
             ).first()
-        return ratings.exclude(user_rating = 0).aggregate(average=Avg('user_rating')) if ratings else None
+            return ratings.exclude(user_rating = 0).aggregate(average=Avg('user_rating')) if ratings else None
         return None
 
     class Meta:
