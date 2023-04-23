@@ -1,4 +1,4 @@
-from django.db.models import Count, Avg
+from django.db.models import Count, Sum
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from blog_api.permissions import IsOwnerOrReadOnly
@@ -16,7 +16,7 @@ class PostList(generics.ListCreateAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         ratings_count=Count('ratings', distinct=True),
-        total_stars=Count('ratings', distinct=True)
+        total_stars=Sum('ratings__user_rating', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -53,5 +53,5 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         ratings_count=Count('ratings', distinct=True),
-        total_stars=Count('ratings', distinct=True)
+        total_stars=Sum('ratings__user_rating', distinct=True)
     ).order_by('-created_at')
