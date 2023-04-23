@@ -20,7 +20,7 @@ class RatingList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class RatingDetail(generics.RetrieveDestroyAPIView):
+class RatingDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a rating
     """
