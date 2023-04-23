@@ -27,7 +27,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = [
             "id", "owner", "is_owner", "profile_id", "profile_image",
-            "created_at", "updated_at", "content", "rating", "recipe"
+            "created_at", "updated_at", "content",
         ]
 
 

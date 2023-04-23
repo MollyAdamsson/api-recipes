@@ -16,8 +16,7 @@ class PostList(generics.ListCreateAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         ratings_count=Count('ratings', distinct=True),
-        total_stars=Count('ratings', distinct=True),
-        average_rating=Avg('ratings__user_rating')
+        total_stars=Count('ratings', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -54,6 +53,5 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         ratings_count=Count('ratings', distinct=True),
-        total_stars=Count('ratings', distinct=True),
-        average_rating=Avg('ratings__user_rating')
+        total_stars=Count('ratings', distinct=True)
     ).order_by('-created_at')

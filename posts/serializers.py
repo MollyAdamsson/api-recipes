@@ -18,7 +18,6 @@ class PostSerializer(serializers.ModelSerializer):
     rating_id = serializers.SerializerMethodField()
     ratings_count = serializers.ReadOnlyField()
     user_rating = serializers.SerializerMethodField()
-    average_rating = serializers.ReadOnlyField()
     total_stars = serializers.ReadOnlyField()
 
     def validate_image(self, value):
@@ -72,6 +71,6 @@ class PostSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count', 'rating_id', 'user_rating',
-            'ratings_count', 'average_rating', 'total_stars', 'ingredients',
+            'ratings_count', 'total_stars', 'ingredients',
             'instructions',
         ]
