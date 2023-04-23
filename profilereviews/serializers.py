@@ -1,8 +1,8 @@
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
-from .models import Review
+from .models import ProfileReview
 
-class ReviewSerializer(serializers.ModelSerializer):
+class ProfileReviewSerializer(serializers.ModelSerializer):
     """
     The serializer for the review model
     """
@@ -24,12 +24,12 @@ class ReviewSerializer(serializers.ModelSerializer):
         return naturaltime(obj.updated_at)
 
     class Meta:
-        model = Review
+        model = ProfileReview
         fields = [
             "id", "owner", "is_owner", "profile_id", "profile_image",
             "created_at", "updated_at", "content",
         ]
 
 
-class ReviewDetailSerializer(ReviewSerializer):
-    post = serializers.ReadOnlyField(source="post.id")
+class ProfileReviewDetailSerializer(ProfileReviewSerializer):
+    profile = serializers.ReadOnlyField(source="profile.id")
