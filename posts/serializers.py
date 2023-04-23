@@ -15,10 +15,6 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-    rating_id = serializers.SerializerMethodField()
-    ratings_count = serializers.ReadOnlyField()
-    rating_average = serializers.SerializerMethodField()
-    user_rating = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 4 * 1024 * 1024:
@@ -46,40 +42,12 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
-    def get_rating_id(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            rating = Rating.objects.filter(
-                owner=user, post=obj
-            ).first()
-            return rating.id if rating else None
-        return None
-
-    def get_user_rating(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            rating = Rating.objects.filter(
-                owner=user, post=obj
-            ).first()
-            return rating.user_rating if rating else None
-        return None
-
-    def get_rating_average(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            ratings = Rating.objects.filter(
-                post=obj
-            ).first()
-            return ratings.exclude(user_rating = 0).aggregate(average=Avg('user_rating')) if ratings else None
-        return None
-
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
-            'like_id', 'likes_count', 'comments_count', 'rating_id', 'user_rating',
-            'ratings_count', 'rating_average', 'ingredients',
-            'instructions',
+            'like_id', 'likes_count', 'comments_count',
+            'ingredients', 'instructions',
         ]
