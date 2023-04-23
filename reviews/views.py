@@ -12,8 +12,6 @@ class ReviewList(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Review.objects.all()
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['recipe']
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
