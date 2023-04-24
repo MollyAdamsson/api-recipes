@@ -4,7 +4,8 @@ from profiles.models import Profile
 
 class ProfileReview(models.Model):
     """
-    Model for the reviews
+    Model for the reviews, connected to the owner and makes it possible for other users 
+    to review eachothers profiles
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(
@@ -19,4 +20,4 @@ class ProfileReview(models.Model):
         unique_together = [['owner', 'profile']]
 
     def __str__(self):
-        return f"{self.owner}'s profilereview"
+        return f"{self.owner} {self.profile}"
