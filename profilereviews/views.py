@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from blog_api.permissions import IsOwnerOrReadOnly
 from .models import ProfileReview
 from .serializers import ProfileReviewSerializer, ProfileReviewDetailSerializer
@@ -11,6 +12,8 @@ class ProfileReviewList(generics.ListCreateAPIView):
     serializer_class = ProfileReviewSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = ProfileReview.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['profile']
 
     def perform_create(self, serializer):
         """
