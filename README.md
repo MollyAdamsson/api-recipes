@@ -220,10 +220,6 @@ Installed as package dependcies with above installations:
 
 # Testing
 
-Unit tests in posts app:
-
-- image of testing in terminal here
-
 The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads. The results can be found [here](https://github.com/MollyAdamsson/elevated-eats/blob/main/TESTING.md)
 
 ## Deployment
