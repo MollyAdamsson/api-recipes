@@ -14,8 +14,24 @@ class ProfileReviewSerializer(serializers.ModelSerializer):
     updated_at = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
+        """
+        Returns true if the user is the creator of the comment
+        """
         request = self.context["request"]
         return request.user == obj.owner
+
+    def get_created_at(self, obj):
+        """
+        Returns a time when it was created
+        """
+        return naturaltime(obj.created_at)
+
+    def get_updated_at(self, obj):
+        """
+        Returns the time the
+        comment was updated
+        """
+        return naturaltime(obj.updated_at)
 
     class Meta:
         model = ProfileReview
