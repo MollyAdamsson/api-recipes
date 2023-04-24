@@ -49,4 +49,4 @@ class ProfileReviewSerializer(serializers.ModelSerializer):
 
 
 class ProfileReviewDetailSerializer(ProfileReviewSerializer):
-    profile = serializers.ReadOnlyField(source="profile.id")
+    profile = serializers.ReadOnlyField(source="owner.profile.id")
