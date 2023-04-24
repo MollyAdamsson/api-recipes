@@ -1,6 +1,6 @@
 # Elevated Eats API
 
-* This is the backend service used by the Elevated Eats Application
+* This is the backend service used by the [Elevated Eats Application](https://github.com/MollyAdamsson/elevated-eats)
 
 ## Development Goals
 
@@ -66,6 +66,89 @@ Takes care of the API endpoint creation and the connection to the CRUD functions
 # Security
 
 * The permission class that handles who gets to delete and edit the content based on owner was added, its called IsOwnerOrReadOnly. 
+
+## Endpoints
+
+User Story:
+
+`As a developer, I need to create the base project set up so that I can build out the features.`
+
+Implementation:
+
+The base project was created with all of the neccessary packages installed and frozen into the requirements.
+
+The settings were also edited to hide any secret variables and set dev and production environments apart.
+
+User Story:
+
+`As a user I can create a new account so that I can access all the features for signed up users`
+
+Implementation:
+
+Django rest framework and dj_rest_auth were installed and added to the url patterns and site packages to make use of their built in authentication system. Only registered users can create posts/recipes + like and comment on other users recipes.
+
+User Story:
+
+`As a user, I want to be able to view edit or delete a post`
+
+`As a user, I want to able to create a post and list posts`
+
+Implementation:
+
+Endpoint: /posts/
+
+Methods:
+* POST - Used to create post
+* GET - Used to get a list of posts
+
+Endpoint: /posts/<int:pk>/
+
+Methods:
+* GET - Get a single post
+* PUT - Used to update a single post
+* DELETE - Used to delete a post
+
+User Story:
+
+`As a developer, I want to create a new blank profile with default image when a user is created.`
+
+Implementation:
+
+In the profiles app, a signal was created in order to create a new user profile on signup.
+
+User Story:
+
+`As a user, I want to able to get a list of profiles`
+
+Implementation:
+
+Endpoint: /profiles/
+
+Methods:
+* POST - Used to create post
+* GET - Used to get a list of posts
+
+Endpoint: /profiles/<int:pk>/
+
+Methods:
+* GET - Get a single profile
+* PUT - Used to update a single profile
+* DELETE - Used to delete a profile
+
+User Story: 
+
+`As a developer, I want to create rating model and API view so that users can rate eachothers posts`
+
+Implementation:
+
+Endpoint: /ratings/
+
+`As a developer, I want to create a review model and API view so that users can review eachothers profiles`
+
+Implementation:
+
+Endpoint: /reviews/
+
 
 # Technologies
 * Django
@@ -137,13 +220,11 @@ Installed as package dependcies with above installations:
 
 # Testing
 
+Unit tests in posts app:
+
 - image of testing in terminal here
 
-The API was tested locally during development of the project and can be viewed properly [here]()
-
-### Bugs and their fixes
-
-* No bugs detected
+The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads. The results can be found [here](https://github.com/MollyAdamsson/elevated-eats/blob/main/TESTING.md)
 
 ## Deployment
 
