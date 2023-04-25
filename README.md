@@ -141,14 +141,12 @@ User Story:
 
 Implementation:
 
-Endpoint: /ratings/
+In the ratings app i made sure that the backend handled the ratings_count and ratings by users so that it was up to correct info regarding what post/recipe was rated.
+
 
 `As a developer, I want to create a review model and API view so that users can review eachothers profiles`
 
-Implementation:
-
-Endpoint: /reviews/
-
+In the review app I connected the profile and profilereview apps so that every time someone leaves a review on a profile the profilereview count collects the correct data.
 
 # Technologies
 * Django
@@ -275,12 +273,8 @@ code in your IDE: pip3 freeze > requirements.txt
 * Authorise the connection
 * Also important to make sure you have the right config variables applied, these change the way the app behaves. 
 * Go to the settings tab and then click reveal config vars
-* Add the following config vars:
-* * SECRET_KEY: (Your secret key)
-* * DATABASE_URL: (This should already exist with add on of postgres)
-* * EMAIL_HOST_USER: (email address)
-* * EMAIL_HOST_PASS: (email app password)
-* * CLOUNDINARY_URL: (cloudinary api url)
+* Make sure you have the correct config cars
+* Go to deploy tab
 * Search for the repository name you've chosen
 * Make sure you have selected the correct branch (master/main), and select the method you desire.
 
